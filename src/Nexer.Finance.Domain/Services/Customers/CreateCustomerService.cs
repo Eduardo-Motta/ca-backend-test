@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Nexer.Finance.Domain.Entities;
-using Nexer.Finance.Domain.Handlers;
 using Nexer.Finance.Domain.Repositories;
 using Nexer.Finance.Shared.Utils;
 
@@ -11,7 +10,7 @@ namespace Nexer.Finance.Domain.Services.Customers
         private readonly ICustomerRepository _customerRespository;
         private readonly ILogger _logger;
 
-        public CreateCustomerService(ILogger<CreateCustomerHandle> logger, ICustomerRepository customerRespository)
+        public CreateCustomerService(ILogger<CreateCustomerService> logger, ICustomerRepository customerRespository)
         {
             _logger = logger;
             _customerRespository = customerRespository;
