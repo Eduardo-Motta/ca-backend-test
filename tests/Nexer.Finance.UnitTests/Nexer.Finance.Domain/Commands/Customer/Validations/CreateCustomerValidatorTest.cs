@@ -6,7 +6,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Commands.Customer.Validat
     public class CreateCustomerValidatorTest
     {
         [Fact]
-        public async void Should()
+        public async void ShouldValidateWithoutErrors()
         {
             var command = new CreateCustomerCommand
             {
