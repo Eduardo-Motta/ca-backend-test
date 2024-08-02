@@ -1,0 +1,17 @@
+﻿using Nexer.Finance.Shared.Commands;
+
+namespace Nexer.Finance.Domain.Commands.Customer
+{
+    public class UpdateCustomerCommand : ICommand
+    {
+        public int Id { get; private set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+
+        public void SetId(int id)
+        {
+            Id = id;
+        }
+    }
+}

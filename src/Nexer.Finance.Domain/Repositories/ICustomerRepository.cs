@@ -8,5 +8,6 @@ namespace Nexer.Finance.Domain.Repositories
         Task CreateCustomerAsync(CustomerEntity customer, CancellationToken cancellationToken);
         Task<CustomerEntity> FindCustomerByIdAsync(int customerId, CancellationToken cancellationToken);
         Task<IEnumerable<CustomerEntity>> FindAllCustomersAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken);
+        Task UpdateCustomerAsync(CustomerEntity customer, CancellationToken cancellationToken);
     }
 }
