@@ -7,8 +7,7 @@ namespace Nexer.Finance.Domain.Commands.Customer.Validations
         public FindCustomerByIdValidator()
         {
             RuleFor(x => x.Id)
-                .NotNull().WithMessage("Required field")
-                .GreaterThan(0).WithMessage("The Id must be greater than zero");
+                .NotNull().WithMessage("Required field");
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Nexer.Finance.Domain.Handlers
                 return new CommandResponseError(result.Left.Message);
             }
 
-            return new CommandResponseData<int>(result.Right);
+            return new CommandResponseData<Guid>(result.Right);
         }
     }
 }

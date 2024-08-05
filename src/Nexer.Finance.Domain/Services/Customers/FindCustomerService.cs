@@ -16,7 +16,7 @@ namespace Nexer.Finance.Domain.Services.Customers
             _customerRespository = customerRespository;
         }
 
-        public async Task<Either<Error, CustomerEntity>> FindCustomerByIdAsync(int customerId, CancellationToken cancellationToken)
+        public async Task<Either<Error, CustomerEntity>> FindCustomerByIdAsync(Guid customerId, CancellationToken cancellationToken)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace Nexer.Finance.Domain.Services.Customers
 
                 var customer = await _customerRespository.FindCustomerByIdAsync(customerId, cancellationToken);
 
-                if (customer == null)
+                if (customer is null)
                 {
                     _logger.LogInformation("Customer with ID not found: {customerId}", customerId);
 

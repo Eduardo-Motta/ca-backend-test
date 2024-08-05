@@ -5,6 +5,6 @@ namespace Nexer.Finance.Domain.Services.Customers
 {
     internal interface IUpdateCustomerService
     {
-        Task<Either<Error, bool>> UpdateCustomerAsync(int customerId, CustomerEntity customer, CancellationToken cancellationToken);
+        Task<Either<Error, bool>> UpdateCustomerAsync(Guid customerId, CustomerEntity customer, CancellationToken cancellationToken);
     }
 }

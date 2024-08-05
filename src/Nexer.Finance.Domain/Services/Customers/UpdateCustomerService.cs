@@ -16,7 +16,7 @@ namespace Nexer.Finance.Domain.Services.Customers
             _customerRespository = customerRespository;
         }
 
-        public async Task<Either<Error, bool>> UpdateCustomerAsync(int customerId, CustomerEntity customer, CancellationToken cancellationToken)
+        public async Task<Either<Error, bool>> UpdateCustomerAsync(Guid customerId, CustomerEntity customer, CancellationToken cancellationToken)
         {
             try
             {

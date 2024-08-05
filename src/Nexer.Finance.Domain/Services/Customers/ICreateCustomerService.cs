@@ -5,6 +5,6 @@ namespace Nexer.Finance.Domain.Services.Customers
 {
     public interface ICreateCustomerService
     {
-        Task<Either<Error, int>> CreateCustomerAsync(CustomerEntity customer, CancellationToken cancellationToken);
+        Task<Either<Error, Guid>> CreateCustomerAsync(CustomerEntity customer, CancellationToken cancellationToken);
     }
 }

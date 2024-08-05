@@ -4,11 +4,6 @@ using Nexer.Finance.Domain.Entities;
 using Nexer.Finance.Domain.Repositories;
 using Nexer.Finance.Domain.Services.Customers;
 using Nexer.Finance.Shared.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
 {
@@ -28,13 +23,9 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         {
             var entity = new CustomerEntity(name: "Carlos Araujo", email: "carlos.ar@gmail.com", address: "Av. Plácido de Castro, 35 D - Centro, São Paulo - SP");
             var cancellationToken = CancellationToken.None;
-            var customerId = 1641;
+            var customerId = Guid.NewGuid();
 
             _customerRespositoryMock.Setup(repository => repository.FindCustomerByIdAsync(customerId, cancellationToken))
-                .Callback<int, CancellationToken>((cust, token) =>
-                {
-                    typeof(BaseEntity).GetProperty("Id")!.SetValue(entity, 1641);
-                })
             .ReturnsAsync(entity);
 
             var service = new FindCustomerService(_loggerMock.Object, _customerRespositoryMock.Object);
@@ -42,7 +33,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
             var result = await service.FindCustomerByIdAsync(customerId, cancellationToken);
 
             Assert.True(result.IsRight);
-            Assert.Equal(customerId, result.Right.Id);
+            Assert.IsType<Guid>(result.Right.Id);
             Assert.Equal(entity.Name, result.Right.Name);
         }
 
@@ -50,7 +41,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         public async void ShouldReturnNullWhenCustomerNotfoundById()
         {
             var cancellationToken = CancellationToken.None;
-            var customerId = 20;
+            var customerId = Guid.NewGuid();
 
             _customerRespositoryMock.Setup(repository => repository.FindCustomerByIdAsync(customerId, cancellationToken))
             .ReturnsAsync((CustomerEntity)null!);

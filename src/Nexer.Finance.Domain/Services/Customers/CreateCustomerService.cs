@@ -16,7 +16,7 @@ namespace Nexer.Finance.Domain.Services.Customers
             _customerRespository = customerRespository;
         }
 
-        public async Task<Either<Error, int>> CreateCustomerAsync(CustomerEntity customer, CancellationToken cancellationToken)
+        public async Task<Either<Error, Guid>> CreateCustomerAsync(CustomerEntity customer, CancellationToken cancellationToken)
         {
             try
             {
@@ -26,12 +26,12 @@ namespace Nexer.Finance.Domain.Services.Customers
 
                 _logger.LogInformation("Customer created sucessfullly with Id: {Id}", customer.Id);
 
-                return Either<Error, int>.RightValue(customer.Id);
+                return Either<Error, Guid>.RightValue(customer.Id);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error while creating the customer");
-                return Either<Error, int>.LeftValue(new Error("An error occurred while creating the customer"));
+                return Either<Error, Guid>.LeftValue(new Error("An error occurred while creating the customer"));
             }
         }
     }

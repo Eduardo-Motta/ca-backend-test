@@ -25,10 +25,6 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
             var cancellationToken = CancellationToken.None;
 
             _customerRespositoryMock.Setup(repository => repository.CreateCustomerAsync(entity, cancellationToken))
-                .Callback<CustomerEntity, CancellationToken>((cust, token) =>
-                {
-                    typeof(BaseEntity).GetProperty("Id")!.SetValue(cust, 1);
-                })
                 .Returns(Task.CompletedTask);
 
             var service = new CreateCustomerService(_loggerMock.Object, _customerRespositoryMock.Object);
@@ -36,7 +32,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
             var result = await service.CreateCustomerAsync(entity, cancellationToken);
 
             Assert.True(result.IsRight);
-            Assert.Equal(1, result.Right);
+            Assert.IsType<Guid>(result.Right);
         }
 
         [Fact]
