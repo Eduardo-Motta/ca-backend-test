@@ -15,7 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Nexer.Finance.Domain\Nexer.Finance.Domain.csproj" />
+    <ProjectReference Include="..\Nexer.Finance.Infrastructure\Nexer.Finance.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
