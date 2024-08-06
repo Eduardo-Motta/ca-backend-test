@@ -8,7 +8,7 @@ using Nexer.Finance.Shared.Commands;
 using Nexer.Finance.Shared.Utils;
 using Shared.Handlers;
 
-namespace Nexer.Finance.Domain.Handlers
+namespace Nexer.Finance.Domain.Handlers.Customers
 {
     public class FindCustomerHandle : IHandler<FindCustomerByIdCommand>, IHandler<FindAllCustomersCommand>
     {

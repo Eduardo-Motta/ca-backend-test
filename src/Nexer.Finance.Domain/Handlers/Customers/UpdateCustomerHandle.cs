@@ -7,9 +7,9 @@ using Nexer.Finance.Domain.Services.Customers;
 using Nexer.Finance.Shared.Commands;
 using Shared.Handlers;
 
-namespace Nexer.Finance.Domain.Handlers
+namespace Nexer.Finance.Domain.Handlers.Customers
 {
-    internal class UpdateCustomerHandle : IHandler<UpdateCustomerCommand>
+    public class UpdateCustomerHandle : IHandler<UpdateCustomerCommand>
     {
         private readonly ILogger _logger;
         private readonly IUpdateCustomerService _updateCustomerService;

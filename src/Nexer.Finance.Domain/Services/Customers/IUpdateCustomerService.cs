@@ -3,7 +3,7 @@ using Nexer.Finance.Shared.Utils;
 
 namespace Nexer.Finance.Domain.Services.Customers
 {
-    internal interface IUpdateCustomerService
+    public interface IUpdateCustomerService
     {
         Task<Either<Error, bool>> UpdateCustomerAsync(Guid customerId, CustomerEntity customer, CancellationToken cancellationToken);
     }

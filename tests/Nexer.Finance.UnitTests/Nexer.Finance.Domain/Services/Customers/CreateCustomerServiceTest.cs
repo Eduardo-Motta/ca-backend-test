@@ -21,7 +21,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         [Fact]
         public async void ShouldCreateCustomer()
         {
-            var entity = new CustomerEntity(name: "João Nascimento", email: "joao.nascimento@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
+            var entity = new CustomerEntity(name: "Maria Nascimento", email: "maria.nascimento@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
             var cancellationToken = CancellationToken.None;
 
             _customerRespositoryMock.Setup(repository => repository.CreateCustomerAsync(entity, cancellationToken))
@@ -38,7 +38,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         [Fact]
         public async void ShouldReturnErrorHandlingWhenNotCreateCustomer()
         {
-            var entity = new CustomerEntity(name: "João Nascimento", email: "joao.nascimento@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
+            var entity = new CustomerEntity(name: "Jhonny Almeida", email: "j.almeida@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
             var cancellationToken = CancellationToken.None;
 
             _customerRespositoryMock

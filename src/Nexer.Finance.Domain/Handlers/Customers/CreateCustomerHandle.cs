@@ -7,7 +7,7 @@ using Nexer.Finance.Domain.Services.Customers;
 using Nexer.Finance.Shared.Commands;
 using Shared.Handlers;
 
-namespace Nexer.Finance.Domain.Handlers
+namespace Nexer.Finance.Domain.Handlers.Customers
 {
     public class CreateCustomerHandle : IHandler<CreateCustomerCommand>
     {

@@ -51,7 +51,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
             var result = await service.FindCustomerByIdAsync(customerId, cancellationToken);
 
             Assert.True(result.IsLeft);
-            Assert.Equal("Customer not found", result.Left.Message);
+            Assert.Equal("Not found", result.Left.Message);
         }
 
         [Fact]
@@ -98,7 +98,25 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         }
 
         [Fact]
-        public async void ShouldReturnErrorHandling()
+        public async void ShouldReturnErrorHandlingWhenAnExceptionOccursOnFindCustomerById()
+        {
+            var customerId = Guid.NewGuid();
+            var cancellationToken = CancellationToken.None;
+
+            _customerRespositoryMock.Setup(repository => repository.FindCustomerByIdAsync(It.IsAny<Guid>(), cancellationToken))
+            .ThrowsAsync(new Exception("Repository error"));
+
+            var service = new FindCustomerService(_loggerMock.Object, _customerRespositoryMock.Object);
+
+            var result = await service.FindCustomerByIdAsync(customerId, cancellationToken);
+
+            Assert.True(result.IsLeft);
+            Assert.IsType<Error>(result.Left);
+            Assert.Equal("An error occurred while searching for the customer", result.Left.Message);
+        }
+
+        [Fact]
+        public async void ShouldReturnErrorHandlingWhenAnExceptionOccursOnFindByIdFindAllCustomers()
         {
             var pagination = new PaginationParameters(2, 20);
             var cancellationToken = CancellationToken.None;

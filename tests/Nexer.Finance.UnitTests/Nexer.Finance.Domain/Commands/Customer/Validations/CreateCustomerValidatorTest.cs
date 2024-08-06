@@ -79,7 +79,5 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Commands.Customer.Validat
                 Assert.Equal("Invalid email address", error1.ErrorMessage);
             });
         }
-
-
     }
 }

@@ -28,7 +28,7 @@ namespace Nexer.Finance.Domain.Services.Customers
                 {
                     _logger.LogInformation("Customer with ID not found: {customerId}", customerId);
 
-                    return Either<Error, CustomerEntity>.LeftValue(new Error("Customer not found"));
+                    return Either<Error, CustomerEntity>.LeftValue(new Error("Not found"));
                 }
 
                 _logger.LogInformation("Customer with ID found successfully");

@@ -5,12 +5,12 @@ using Nexer.Finance.Shared.Utils;
 
 namespace Nexer.Finance.Domain.Services.Customers
 {
-    internal class UpdateCustomerService : IUpdateCustomerService
+    public class UpdateCustomerService : IUpdateCustomerService
     {
         private readonly ICustomerRepository _customerRespository;
         private readonly ILogger _logger;
 
-        public UpdateCustomerService(ILogger<CreateCustomerService> logger, ICustomerRepository customerRespository)
+        public UpdateCustomerService(ILogger<UpdateCustomerService> logger, ICustomerRepository customerRespository)
         {
             _logger = logger;
             _customerRespository = customerRespository;
@@ -28,7 +28,7 @@ namespace Nexer.Finance.Domain.Services.Customers
                 {
                     _logger.LogInformation("Customer with ID not found: {customerId}", customerId);
 
-                    return Either<Error, bool>.LeftValue(new Error("Customer not found"));
+                    return Either<Error, bool>.LeftValue(new Error("Not found"));
                 }
 
                 _logger.LogInformation("Mapping customer entity");
