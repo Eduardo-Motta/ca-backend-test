@@ -2,11 +2,6 @@
 using Nexer.Finance.Domain.Entities;
 using Nexer.Finance.Domain.Repositories;
 using Nexer.Finance.Shared.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexer.Finance.Domain.Services.Products
 {
