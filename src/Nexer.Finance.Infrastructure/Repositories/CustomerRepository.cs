@@ -24,7 +24,7 @@ namespace Nexer.Finance.Infrastructure.Repositories
         {
             int skipCount = (paginationParameters.PageNumber - 1) * paginationParameters.PageSize;
 
-            return await _context.Costomers
+            return await _context.Customers
                 .Skip(skipCount)
                 .Take(paginationParameters.PageSize)
                 .ToListAsync(cancellationToken);
@@ -32,12 +32,12 @@ namespace Nexer.Finance.Infrastructure.Repositories
 
         public async Task<CustomerEntity?> FindCustomerByIdAsync(Guid customerId, CancellationToken cancellationToken)
         {
-            return await _context.Costomers.Where(x => x.Id == customerId).FirstOrDefaultAsync(cancellationToken);
+            return await _context.Customers.Where(x => x.Id == customerId).FirstOrDefaultAsync(cancellationToken);
         }
 
         public async Task UpdateCustomerAsync(CustomerEntity customer, CancellationToken cancellationToken)
         {
-            _context.Costomers.Update(customer);
+            _context.Customers.Update(customer);
             await _context.SaveChangesAsync(cancellationToken);
         }
     }

@@ -24,7 +24,9 @@ namespace Nexer.Finance.Infrastructure.Context
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<CustomerEntity> Costomers => Set<CustomerEntity>();
+        public DbSet<CustomerEntity> Customers => Set<CustomerEntity>();
         public DbSet<ProductEntity> Products => Set<ProductEntity>();
+        public DbSet<BillingEntity> Billings => Set<BillingEntity>();
+        public DbSet<BillingLineEntity> BillingLines => Set<BillingLineEntity>();
     }
 }
