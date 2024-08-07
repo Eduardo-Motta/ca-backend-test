@@ -48,7 +48,7 @@ Endpoints
 
 ### /api/Product/{id}
 - GET: Retorna os dados do produto especificado
-- PUT: Atualiza Retorna os dados do produto especificado
+- PUT: Atualiza os dados do produto especificado
 - DELETE: Remove o produto especificado
 
 ---------------------
