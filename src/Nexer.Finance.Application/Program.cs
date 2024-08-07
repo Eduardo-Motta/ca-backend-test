@@ -1,4 +1,5 @@
 using Nexer.Finance.Application.Infrastructure;
+using Nexer.Finance.Application.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,5 +28,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.Run();
