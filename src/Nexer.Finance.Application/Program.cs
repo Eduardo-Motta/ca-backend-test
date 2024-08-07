@@ -1,3 +1,4 @@
+using Microsoft.OpenApi.Models;
 using Nexer.Finance.Application.Infrastructure;
 using Nexer.Finance.Application.Middlewares;
 
@@ -10,7 +11,15 @@ builder.Logging.AddDebug();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Nexer - ca-backend-test",
+        Description = "API REST de gerenciamento de faturamento de clientes.",
+    });
+});
 
 var configuration = builder.Configuration;
 builder.Services.AddDependencyInject(configuration);

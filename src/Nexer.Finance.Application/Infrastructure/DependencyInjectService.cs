@@ -49,10 +49,12 @@ namespace Nexer.Finance.Application.Infrastructure
             services.AddScoped<ICreateCustomerService, CreateCustomerService>();
             services.AddScoped<IUpdateCustomerService, UpdateCustomerService>();
             services.AddScoped<IFindCustomerService, FindCustomerService>();
+            services.AddScoped<IDeleteCustomerService, DeleteCustomerService>();
 
             services.AddScoped<ICreateProductService, CreateProductService>();
             services.AddScoped<IUpdateProductService, UpdateProductService>();
             services.AddScoped<IFindProductService, FindProductService>();
+            services.AddScoped<IDeleteProductService, DeleteProductService>();
 
             services.AddScoped<IImportBillingService, ImportBillingService>();
         }
@@ -63,11 +65,13 @@ namespace Nexer.Finance.Application.Infrastructure
             services.AddScoped<IHandler<FindAllCustomersCommand>, FindCustomerHandle>();
             services.AddScoped<IHandler<CreateCustomerCommand>, CreateCustomerHandle>();
             services.AddScoped<IHandler<UpdateCustomerCommand>, UpdateCustomerHandle>();
+            services.AddScoped<IHandler<DeleteCustomerCommand>, DeleteCustomerHandle>();
 
             services.AddScoped<IHandler<FindProductByIdCommand>, FindProductHandle>();
             services.AddScoped<IHandler<FindAllProductsCommand>, FindProductHandle>();
             services.AddScoped<IHandler<CreateProductCommand>, CreateProductHandle>();
             services.AddScoped<IHandler<UpdateProductCommand>, UpdateProductHandle>();
+            services.AddScoped<IHandler<DeleteProductCommand>, DeleteProductHandle>();
         }
     }
 }

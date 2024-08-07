@@ -45,5 +45,14 @@ namespace Nexer.Finance.Application.Controllers
 
             return HandleResponse(result);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromServices] IHandler<DeleteProductCommand> handler, [FromRoute] Guid id, CancellationToken cancellationToken)
+        {
+            var command = new DeleteProductCommand { Id = id };
+            var result = await handler.Handle(command, cancellationToken);
+
+            return HandleResponse(result);
+        }
     }
 }
