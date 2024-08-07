@@ -5,7 +5,7 @@ using Nexer.Finance.Shared.Commands;
 namespace Nexer.Finance.Application.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class BaseController : ControllerBase
     {
         protected IActionResult HandleResponse(ICommandResult response)
