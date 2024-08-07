@@ -14,7 +14,7 @@ namespace Nexer.Finance.Domain.Dtos
         [JsonPropertyName("total_amount")]
         public decimal TotalAmount { get; set; }
         public string Currency { get; set; } = string.Empty;
-        public CustomerDto Customer { get; set; } = new CustomerDto();
+        public CustomerDto? Customer { get; set; }
         public List<BillingLineDto> Lines { get; set; } = new List<BillingLineDto>();
     }
 }

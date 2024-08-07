@@ -22,6 +22,15 @@ namespace Nexer.Finance.Domain.Services.Customers
             {
                 _logger.LogInformation("Starting service for customer creation");
 
+                var customerFound = await _customerRespository.FindCustomerByIdAsync(customer.Id, cancellationToken);
+
+                if (customerFound is not null)
+                {
+                    _logger.LogInformation("Customer with ID {Id} already exists", customer.Id);
+
+                    return Either<Error, Guid>.LeftValue(new Error("The provided ID already exists"));
+                }
+
                 await _customerRespository.CreateCustomerAsync(customer, cancellationToken);
 
                 _logger.LogInformation("Customer created sucessfullly with Id: {Id}", customer.Id);

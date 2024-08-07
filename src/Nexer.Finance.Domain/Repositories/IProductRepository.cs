@@ -9,5 +9,7 @@ namespace Nexer.Finance.Domain.Repositories
         Task<ProductEntity?> FindProductByIdAsync(Guid productId, CancellationToken cancellationToken);
         Task<IEnumerable<ProductEntity>> FindAllProductsAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken);
         Task UpdateProductAsync(ProductEntity product, CancellationToken cancellationToken);
+        Task DeleteProductAsync(ProductEntity product, CancellationToken cancellationToken);
+        Task<bool> ProductHasLinkedBilling(Guid productId, CancellationToken cancellationToken);
     }
 }

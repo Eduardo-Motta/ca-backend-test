@@ -20,6 +20,17 @@ namespace Nexer.Finance.Infrastructure.Repositories
             await _context.SaveChangesAsync(cancellationToken);
         }
 
+        public async Task<bool> CustomerHasLinkedBilling(Guid customerId, CancellationToken cancellationToken)
+        {
+            return await _context.Billings.Where(x => x.CustomerId == customerId).AnyAsync(cancellationToken);
+        }
+
+        public async Task DeleteCustomerAsync(CustomerEntity customer, CancellationToken cancellationToken)
+        {
+            _context.Customers.Remove(customer);
+            await _context.SaveChangesAsync(cancellationToken);
+        }
+
         public async Task<IEnumerable<CustomerEntity>> FindAllCustomersAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken)
         {
             int skipCount = (paginationParameters.PageNumber - 1) * paginationParameters.PageSize;

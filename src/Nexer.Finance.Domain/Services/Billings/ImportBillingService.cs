@@ -135,9 +135,17 @@ namespace Nexer.Finance.Domain.Services.Billings
             return errors;
         }
 
-        private async Task<List<Error>> ValidateCustomer(CustomerDto customer, CancellationToken cancellationToken)
+        private async Task<List<Error>> ValidateCustomer(CustomerDto? customer, CancellationToken cancellationToken)
         {
             List<Error> errors = new List<Error>();
+
+            if (customer is null)
+            {
+                _logger.LogInformation("There is no customer linked to billing");
+                errors.Add(new Error($"There is no customer linked to billing"));
+
+                return errors;
+            }
 
             _logger.LogInformation("Checking if customer with Id {Id} exists in the local database", customer.Id);
             var customerFound = await _customerRespository.FindCustomerByIdAsync(customer.Id, cancellationToken);
@@ -154,6 +162,14 @@ namespace Nexer.Finance.Domain.Services.Billings
         private async Task<List<Error>> ValidateBillingLine(IEnumerable<BillingLineDto> lines, CancellationToken cancellationToken)
         {
             List<Error> errors = new List<Error>();
+
+            if (lines is null || lines.Count() == 0)
+            {
+                _logger.LogInformation("There are no products linked to billing");
+                errors.Add(new Error($"There are no products linked to billing"));
+
+                return errors;
+            }
 
             foreach (var line in lines)
             {

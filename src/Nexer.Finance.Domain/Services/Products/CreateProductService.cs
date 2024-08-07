@@ -22,6 +22,15 @@ namespace Nexer.Finance.Domain.Services.Products
             {
                 _logger.LogInformation("Starting service for product creation");
 
+                var productFound = await _productRepository.FindProductByIdAsync(product.Id, cancellationToken);
+
+                if (productFound is not null)
+                {
+                    _logger.LogInformation("Product with ID {Id} already exists", product.Id);
+
+                    return Either<Error, Guid>.LeftValue(new Error("The provided ID already exists"));
+                }
+
                 await _productRepository.CreateProductAsync(product, cancellationToken);
 
                 _logger.LogInformation("Product created sucessfullly with Id: {Id}", product.Id);

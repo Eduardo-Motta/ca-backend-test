@@ -20,6 +20,12 @@ namespace Nexer.Finance.Infrastructure.Repositories
             await _context.SaveChangesAsync(cancellationToken);
         }
 
+        public async Task DeleteProductAsync(ProductEntity product, CancellationToken cancellationToken)
+        {
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync(cancellationToken);
+        }
+
         public async Task<IEnumerable<ProductEntity>> FindAllProductsAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken)
         {
             int skipCount = (paginationParameters.PageNumber - 1) * paginationParameters.PageSize;
@@ -33,6 +39,11 @@ namespace Nexer.Finance.Infrastructure.Repositories
         public async Task<ProductEntity?> FindProductByIdAsync(Guid productId, CancellationToken cancellationToken)
         {
             return await _context.Products.Where(x => x.Id == productId).FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task<bool> ProductHasLinkedBilling(Guid productId, CancellationToken cancellationToken)
+        {
+            return await _context.BillingLines.Where(x => x.ProductId == productId).AnyAsync(cancellationToken);
         }
 
         public async Task UpdateProductAsync(ProductEntity product, CancellationToken cancellationToken)
