@@ -34,7 +34,7 @@ namespace Nexer.Finance.Domain.Handlers.Products
             }
 
             _logger.LogInformation("Mapping product entity");
-            var product = new ProductEntity(command.Name);
+            var product = new ProductEntity(command.Id, command.Name);
 
             var result = await _updateProductService.UpdateProductAsync(command.Id, product, cancellationToken);
 

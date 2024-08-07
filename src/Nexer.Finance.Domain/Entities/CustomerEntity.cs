@@ -6,8 +6,9 @@
         public string Email { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
 
-        public CustomerEntity(string name, string email, string address)
+        public CustomerEntity(Guid id, string name, string email, string address)
         {
+            Id = id;
             Name = name;
             Email = email;
             Address = address;

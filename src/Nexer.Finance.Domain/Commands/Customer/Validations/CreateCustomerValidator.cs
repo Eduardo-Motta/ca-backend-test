@@ -6,6 +6,11 @@ namespace Nexer.Finance.Domain.Commands.Customer.Validations
     {
         public CreateCustomerValidator()
         {
+            RuleFor(x => x.Id)
+                .NotNull()
+                .NotEmpty()
+                .WithMessage("Required field");
+
             RuleFor(x => x.Name)
                 .NotEmpty().WithMessage("Required field");
 

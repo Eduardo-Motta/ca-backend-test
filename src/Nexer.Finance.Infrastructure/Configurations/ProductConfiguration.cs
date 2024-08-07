@@ -10,8 +10,7 @@ namespace Nexer.Finance.Infrastructure.Configurations
         {
             builder.HasKey(p => p.Id);
 
-            builder.Property(c => c.Id)
-            .ValueGeneratedOnAdd()
+            builder.Property(p => p.Id)
             .HasColumnType("uuid");
 
             builder.Property(p => p.Name)

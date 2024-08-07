@@ -1,11 +1,12 @@
-﻿using System.Xml.Linq;
-
-namespace Nexer.Finance.Domain.Entities
+﻿namespace Nexer.Finance.Domain.Entities
 {
     public class ProductEntity : BaseEntity
     {
-        public ProductEntity(string name)
+        public ProductEntity() { }
+
+        public ProductEntity(Guid id, string name)
         {
+            Id = id;
             Name = name;
         }
 

@@ -34,7 +34,7 @@ namespace Nexer.Finance.Domain.Handlers.Customers
             }
 
             _logger.LogInformation("Mapping customer entity");
-            var customer = new CustomerEntity(command.Name, command.Email, command.Address);
+            var customer = new CustomerEntity(command.Id, command.Name, command.Email, command.Address);
 
             var result = await _updateCustomerService.UpdateCustomerAsync(command.Id, customer, cancellationToken);
 
