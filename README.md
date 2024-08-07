@@ -1,4 +1,56 @@
-**Teste para vaga de Desenvolvimento Back-end .NET**
+**Nexer: ca-backend-test**
+
+---------------------
+Tecnologias utilizadas
+---------------------
+* .NET Core 6.0
+* Entity Framework
+* FluentValidation
+* xUnit
+* Logger
+* Docker
+* Docker Compose
+* PostgreSQL
+* Swagger
+
+---------------------
+Execução do projeto
+---------------------
+1. **Executando o docker-compose todos os scripts e containers necessários serão configurados**:
+
+    No terminal, execute o comando:
+    ```shell
+    docker-compose up --build
+    ```
+    
+2. **Após o build, acesso o link abaixo**
+- http://localhost:8080/swagger/index.html
+
+---------------------
+Endpoints
+---------------------
+
+### /api/Billings/importBillings
+- POST: Importa os dados de faturamento da API externa para o banco de dados local
+
+### /api/Customer
+- GET: Retorna uma lista com todos os clientes
+- POST: Cria um novo cliente
+
+### /api/Customer/{id}
+- GET: Retorna os dados do cliente especificado
+- PUT: Atualiza os dados do cliente especificado
+- DELETE: Remove o cliente especificado
+
+### /api/Product
+- GET: Retorna uma lista com todos os produtos
+- POST: Cria um novo produto.
+
+### /api/Product/{id}
+- GET: Retorna os dados do produto especificado
+- PUT: Atualiza Retorna os dados do produto especificado
+- DELETE: Remove o produto especificado
+
 ---------------------
 Criar uma API REST para gerenciar faturamento de clientes.
 ---------------------
@@ -29,28 +81,3 @@ Criar uma API REST para gerenciar faturamento de clientes.
 	* Delete https://65c3b12439055e7482c16bca.mockapi.io/api/v1/billing/:id
 	* PUT https://65c3b12439055e7482c16bca.mockapi.io/api/v1/billing/:id
 ---------------------
-**Requisitos 💻**
-
-* A aplicação deverá ser desenvolvida usando .NET a partir da versão 5+;
-* Modelagem de dados pode ser no banco de dados de sua preferência, podendo ser um banco relacional ou não relacional (mongodb, SQL Server, PostgreSQL, MySQL, etc);
-* Persistência de dados no banco deverá ser feita utilizando o Entity Framework Core;
-* O retorno da API deverá ser em formato JSON;
-* Utilizar as requisições GET, POST, PUT ou DELETE, conforme a melhor prática;
-* Criar o README do projeto descrevendo as tecnologias utilizadas, chamadas dos serviços e configurações necessário para executar a aplicação.
----------------------
-**Pontos Extras ⭐**
-
-* Desenvolvimento baseado em TDD;
-* Práticas de modelagem de projeto;
-* Criar e configurar o Swagger da API de acordo com as melhores práticas;
-* Criar uma API para extração dos dados de faturamento.
-* Sugestões serão bem vindas.
----------------------
-**Submissão do teste 📝**
-
-Crie um fork do teste para acompanharmos o seu desenvolvimento através dos seus commits.
-
----------------------
-Obrigado!
-
-Agradecemos sua participação no teste. Boa sorte! 😄
