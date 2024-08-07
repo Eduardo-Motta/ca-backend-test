@@ -21,7 +21,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         public async void ShouldUpdateCustomer()
         {
             var customerId = Guid.NewGuid();
-            var entity = new CustomerEntity(name: "João Nascimento", email: "joao.nascimento@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
+            var entity = new CustomerEntity(Guid.NewGuid(), name: "João Nascimento", email: "joao.nascimento@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
             var cancellationToken = CancellationToken.None;
 
             _customerRespositoryMock.Setup(repository => repository.FindCustomerByIdAsync(customerId, cancellationToken))
@@ -42,7 +42,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         public async void ShouldNotUpdateWhenCustomerIsNotFound()
         {
             var customerId = Guid.NewGuid();
-            var entity = new CustomerEntity(name: "Adriano Borges", email: "borges.adriano@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
+            var entity = new CustomerEntity(Guid.NewGuid(), name: "Adriano Borges", email: "borges.adriano@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
             var cancellationToken = CancellationToken.None;
 
             _customerRespositoryMock.Setup(repository => repository.FindCustomerByIdAsync(customerId, cancellationToken))
@@ -60,7 +60,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         public async void ShouldReturnErrorHandlingWhenNotCreateCustomer()
         {
             var customerId = Guid.NewGuid();
-            var entity = new CustomerEntity(name: "Aline Junior", email: "al.junior@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
+            var entity = new CustomerEntity(Guid.NewGuid(), name: "Aline Junior", email: "al.junior@email.com", address: "Av. Brasil, 365 - Centro, São Paulo - SP");
             var cancellationToken = CancellationToken.None;
 
             _customerRespositoryMock.Setup(repository => repository.FindCustomerByIdAsync(customerId, cancellationToken))

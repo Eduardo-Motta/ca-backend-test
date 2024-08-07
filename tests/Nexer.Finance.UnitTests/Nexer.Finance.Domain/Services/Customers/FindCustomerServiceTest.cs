@@ -21,7 +21,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         [Fact]
         public async void ShouldReturnCustomerByValidId()
         {
-            var entity = new CustomerEntity(name: "Carlos Araujo", email: "carlos.ar@gmail.com", address: "Av. Plácido de Castro, 35 D - Centro, São Paulo - SP");
+            var entity = new CustomerEntity(Guid.NewGuid(), name: "Carlos Araujo", email: "carlos.ar@gmail.com", address: "Av. Plácido de Castro, 35 D - Centro, São Paulo - SP");
             var cancellationToken = CancellationToken.None;
             var customerId = Guid.NewGuid();
 
@@ -59,11 +59,11 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Services.Customers
         {
             var customers = new List<CustomerEntity>
             {
-                new CustomerEntity(name: "Joana Martins", email: "j.martins@gmail.com", address: "Av. Mato Grosso, 2103 - Centro, São Paulo - SP"),
-                new CustomerEntity(name: "Carolina Araujo", email: "araujocarol@gmail.com", address: "Av. Figueiredo, 6354 - Centro, São Paulo - SP"),
-                new CustomerEntity(name: "Roni Piper", email: "piper@gmail.com", address: "Av. Plácido de Castro, 687 - Centro, São Paulo - SP"),
-                new CustomerEntity(name: "Claudio Gonçalves", email: "cg@gmail.com", address: "Av. Maracanã, 111 - Centro, Rio de Janeiro - RJ"),
-                new CustomerEntity(name: "Matheus Lima", email: "mat.lima@gmail.com", address: "Av. Brasil, 6846 - Centro, Ariquemes - RO"),
+                new CustomerEntity(Guid.NewGuid(), name: "Joana Martins", email: "j.martins@gmail.com", address: "Av. Mato Grosso, 2103 - Centro, São Paulo - SP"),
+                new CustomerEntity(Guid.NewGuid(), name: "Carolina Araujo", email: "araujocarol@gmail.com", address: "Av. Figueiredo, 6354 - Centro, São Paulo - SP"),
+                new CustomerEntity(Guid.NewGuid(), name: "Roni Piper", email: "piper@gmail.com", address: "Av. Plácido de Castro, 687 - Centro, São Paulo - SP"),
+                new CustomerEntity(Guid.NewGuid(), name: "Claudio Gonçalves", email: "cg@gmail.com", address: "Av. Maracanã, 111 - Centro, Rio de Janeiro - RJ"),
+                new CustomerEntity(Guid.NewGuid(), name: "Matheus Lima", email: "mat.lima@gmail.com", address: "Av. Brasil, 6846 - Centro, Ariquemes - RO"),
             };
             var pagination = new PaginationParameters(1, 5);
             var cancellationToken = CancellationToken.None;

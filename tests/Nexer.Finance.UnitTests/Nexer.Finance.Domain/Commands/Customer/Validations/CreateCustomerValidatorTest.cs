@@ -10,6 +10,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Commands.Customer.Validat
         {
             var command = new CreateCustomerCommand
             {
+                Id = Guid.NewGuid(),
                 Name = "Ana Maria",
                 Email = "anamaria@outlook.com",
                 Address = "Av. Recife, 5502 - Quiosq03 - Centro, Rolim de Moura - RO, 76940-000",
@@ -25,6 +26,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Commands.Customer.Validat
         {
             var command = new CreateCustomerCommand
             {
+                Id = Guid.NewGuid(),
                 Name = string.Empty,
                 Email = "contato@email.com",
                 Address = "Av. Padre Adolpho Rohl, 2478 - Centro, Jaru - RO, 76890-000",
@@ -45,6 +47,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Commands.Customer.Validat
         {
             var command = new CreateCustomerCommand
             {
+                Id = Guid.NewGuid(),
                 Name = null!,
                 Email = "carlosjunior@gmail.com",
                 Address = "R. Dr. Gilberto Studart, 55 - Torre Norte - Cocó, Fortaleza - CE, 60192-105",
@@ -65,6 +68,7 @@ namespace Nexer.Finance.UnitTests.Nexer.Finance.Domain.Commands.Customer.Validat
         {
             var command = new CreateCustomerCommand
             {
+                Id = Guid.NewGuid(),
                 Name = "Juca Silva",
                 Email = "jsilva.gmail.com",
                 Address = "Al. Rio Negro, 161 - 4° andar - Alphaville Industrial, Barueri - SP, 06454-000",
