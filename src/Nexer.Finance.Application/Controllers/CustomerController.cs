@@ -6,10 +6,7 @@ namespace Nexer.Finance.Application.Controllers
 {
     public class CustomerController : BaseController
     {
-        public CustomerController(ILogger<CustomerController> logger)
-        {
-
-        }
+        public CustomerController(ILogger<CustomerController> logger) { }
 
         [HttpGet()]
         public async Task<IActionResult> FindAll([FromServices] IHandler<FindAllCustomersCommand> handler, [FromQuery] FindAllCustomersCommand command, CancellationToken cancellationToken)
